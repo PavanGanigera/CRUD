@@ -1,0 +1,339 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+
+}
+  
+div.dt-container .dt-search, .dt-length {
+    display: none;
+}
+.cus{
+    font-size: 14px !important;
+    border-radius: 7px !important;
+    padding: 10px 15px !important;
+    background-color: rgb(179, 255, 66) !important;
+    border: none;
+}
+.login-sec {
+    background: url('images/edb-2.avif') no-repeat center center fixed; background-size: cover; height: 100vh;
+}
+.registration-sec {
+    background: url('images/login.jpg') no-repeat center center fixed; background-size: cover; height: 100vh;
+}
+.list-view-sec {
+    background: url('images/tab-bg.png') no-repeat center center fixed; background-size: cover; height: 100vh;
+}
+.log-bg {
+    background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+    /* border-radius: 0px 15px 15px 0px; */
+}
+.w{
+    width: 80%;
+}
+.vid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.dj {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* =====================font sizes========================= */
+.fs-10{font-size: 10px !important;}
+
+.fs-11{font-size: 11px !important;}
+
+.fs-12{font-size: 12px !important;}
+
+.fs-13{font-size: 13px !important;}
+
+.fs-14{font-size: 14px !important;}
+
+.fs-15{font-size: 15px !important;}
+
+.fs-16{font-size: 16px !important;}
+
+.fs-17{font-size: 17px !important;}
+
+.fs-18{font-size: 18px !important;}
+.fs-19{font-size: 19px !important;}
+.fs-20{font-size: 20px !important;}
+.fs-20{font-size: 20px !important;}
+.fs-24{font-size: 24px !important;}
+
+/* ================================================font waights============== */
+.fw-300{font-weight: 300 !important;}
+
+.fw-350{font-weight: 350 !important;}
+
+.fw-400{font-weight: 400 !important;}
+
+.fw-450{font-weight: 450 !important;}
+.fw-600{font-weight: 600 !important;}
+
+.fw-800{font-weight: 800 !important;}
+
+/* Border Radius */
+
+.br-0{border-radius: 0px !important;}
+
+.br-2{border-radius: 2px !important;}
+
+.br-3{border-radius: 3px !important;}
+
+.br-4{border-radius: 4px !important;}
+
+.br-5{border-radius: 5px !important;}
+
+.br-7{border-radius: 7px !important;}
+
+.br-8{border-radius: 8px !important;}
+
+.br-10{border-radius: 10px !important;}
+
+.br-12{border-radius: 12px !important;}
+
+.br-15{border-radius: 15px !important;}
+
+.br-20{border-radius: 20px !important;}
+
+.br-25{border-radius: 25px !important;}
+
+.br-50{border-radius: 50px !important;}
+
+.br-100{border-radius: 100px !important;}
+
+.br-200{border-radius: 200px !important;}
+
+/* Borders */
+
+.b0{border: none !important;}
+
+.b05{border: 0.5px solid !important;}
+
+.b1{border: 1px solid !important;}
+
+.b15{border: 1.5px solid !important;}
+
+.b05-t{border-top: 1px solid !important;}
+
+.b05-b{border-bottom: 1px solid !important;}
+
+.b05-l{border-left: 1px solid !important;}
+
+.b05-r{border-right: 1px solid !important;}
+
+
+/* ====================text============ */
+.text-blue {color: #3498db !important;}
+
+.text-red {color: #fc6327 !important;}
+
+.text-yellow {color: #dfd10f !important;}
+
+.text-green {color: #2dc937 !important;}
+
+.text-orange {color: #db7b2b !important;}
+
+/* ===================bg================= */
+.bg-lg { background-color: rgb(179, 255, 66) !important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========== */
+.card-cs {
+    background: transparent;
+    backdrop-filter: blur(10px);
+}
+.profile-card {
+    background: transparent;
+    border: none;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Data Tables */
+
+.dt-length label, .dt-search label {
+    margin: 6px;
+    font-size: 16px;
+    font-weight: 320;
+    color: rgba(37,36,36, 1);
+}
+
+div.dt-container .dt-input {
+    border: 0.5px solid rgba(37, 36, 36, 0.5);
+}
+
+.dt-layout-cell .dt-info {
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: 320;
+    color: rgba(37,36,36, 1);
+}
+
+div.dt-container select.dt-input{
+    color: rgba(37, 36, 36, 1);
+    font-size: 14px;
+    padding: 5px 8px;
+}
+
+div.dt-container .dt-search input {
+    border: 0.5px solid rgba(37,36,36,0.5);
+    border-radius: 5px;
+    color: rgba(37, 36, 36, 1);
+    margin-left: 5px;
+}
+
+div.dt-container .dt-search input:focus{
+    box-shadow: 0 0 0 .25rem rgba(243,119,50,.1) !important;
+    border-color: rgb(238, 255, 0);
+}
+
+table.dataTable thead th, table.dataTable thead th b, table.dataTable tfoot th, table.table {
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(115,113,112);
+    text-align: left !important;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+table.dataTable>thead>tr>th, table.dataTable>thead>tr>td {
+    padding: 15px 10px 5px;
+    background-color: rgb(49, 49, 49);
+    color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+table.dataTable>tbody>tr>th, table.dataTable>tbody>tr>td {
+    padding: 12px 10px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-weight: 385;
+    font-size: 15px;
+    color: rgba(37,36,36);
+    vertical-align: middle;
+    text-align: left !important;
+}
+
+.dt-paging-button.first, .dt-paging-button.last {
+    display: none !important;
+}
+
+div.dt-container .dt-paging .dt-paging-button.current{
+    color: rgba(243, 119, 50, 1) !important;
+    border-color: rgb(243, 50, 50) !important;
+}
+
+div.dt-container .dt-paging .dt-paging-button.current:hover{
+    color: #fff !important;
+}
+
+div.dt-container .dt-paging .dt-paging-button{
+    color: rgba(37,36,36,1) !important;
+    transition: all 0.3s;
+}
+
+div.dt-container .dt-paging .dt-paging-button:hover{
+    color: #fff !important;
+    background:rgba(243, 208, 50, 1) !important ;
+    border-color: rgb(243, 208, 50) !important;
+}
+
+.table {
+    --bs-table-hover-bg: #ebfef590;
+}
+
+/* =========buttons */
+.btn-blue {
+    color: #fff;
+    background-color: rgba(24, 160, 251, 1);
+    border-color: rgba(24, 160, 251, 1) !important;
+    transition: all 0.4s;
+}
+.btn-yellow {
+    color: #080808;
+    background-color: rgb(255, 166, 0);
+    border-color: rgb(252, 255, 66, 1) !important;
+    transition: all 0.4s;
+}
+.btn-red {
+    color: #fff;
+    border-color: rgba(230,0,0, 1) !important;
+    background-color: rgba(230,0,0, 1) !important;
+    transition: all 0.4s;
+}
+.btn-green2 {
+    color: #fff;
+    background-color: rgba(48, 190, 130, 1);
+    border-color: rgba(48, 190, 130, 1) !important;
+    transition: all 0.4s;
+}
+.btn-green2:hover {
+    color: #fff !important;
+    border-color: rgba(43, 171, 117, 1) !important;
+    background-color: rgba(43, 171, 117, 1) !important;
+    box-shadow: 0px 0px 5px 0px rgba(43, 171, 117, 1);
+}
+.btn-blue:hover, .btn-blue:focus {
+    color: #fff !important;
+    background-color: rgba(22, 144, 226, 1) !important;
+    border-color: rgba(22, 144, 226, 1) !important;
+    box-shadow: 0px 0px 5px 0px rgba(22, 144, 226, 1);
+}
+.regForm .upload input [type="file"] {
+    display: none;
+}
+.log-btn {
+    background-color: #0367da !important;
+    color: white;
+    text-decoration: none;
+    
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url('/images/calendar.png') no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}

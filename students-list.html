@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS-List View</title>
+    <base href="../">
+
+    <!-- Favicons -->
+    <link href="images/logo-f.png" rel="icon">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- JQuery CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- DATATABLE -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+
+    <!-- Main CSS File -->
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body class="list-view">
+    <section class="list-view-sec dj">
+        <div class="container">
+            <div class="card">
+                <div class="card-body pt-4">
+                    <h5 class="card-title text-center mb-4 fs-20 fw-800"> Students List View</h5>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="search d-flex align-items-center">
+                                <input type="text" id="students-search" placeholder="Search by Name, course"
+                                    class="form-control fs-14 fw-350 bc-grey3 b05"
+                                    style="height: 38px; width:300px;padding-left:40px">
+                                <i class="fa-solid fa-search fs-15 position-absolute ms-3 mt-1"></i>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 text-end mt-3 mt-md-0">
+                            <a href="javascript void(0)" class="btn-green2 btn br-5 b05 fs-16 me-2" data-bs-toggle="modal"
+                                data-bs-target="#addnew-popup"><i class="fa-solid fa-plus"></i> Add New</a>
+                        </div>
+                    </div>
+                    <div class="table-responsive mt-3">
+                        <table class="table datatable-cus table-hover students-table-cus">
+                            <thead>
+                                <tr>
+                                    <th>profile</th>
+                                    <th>Full Name</th>
+                                    <th>E mail</th>
+                                    <th data-type="number" data-format="01">Age</th>
+                                    <th>course</th>
+                                    <th>Number</th>
+                                    <th data-type="number" data-format="DD/MM/YY">Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- studets Delete Modal -->
+    <div class="modal fade delete-popup" id="delete-popup" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark fw-500"> Do You Delete This Student?</h5>
+                    <button type="button" class="btn-close delete-popup" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body bg-light">
+                    <div class="delete-details">
+                        <div class="row filename d-flex align-items-center">
+                            <div class="col-4 d-flex justify-content-between">
+                                <p class="fs-15 fw-400 text-grey2 me-4 white-wrap">File Name</p>
+                                <p class="fs-15 fw-400 text-dark me-4 white-wrap">:</p>
+                            </div>
+                            <div class="col-8">
+                                <p class="fs-15 fw-400 text-dark me-4 white-wrap">Pavan Kumar</p>
+                            </div>
+                        </div>
+                        <div class="row filedate d-flex align-items-center mt-4">
+                            <div class="col-4 d-flex justify-content-between">
+                                <p class="fs-15 fw-400 text-grey2 me-4 white-wrap">File Date :</p>
+                                <p class="fs-15 fw-400 text-dark me-4">:</p>
+                            </div>
+                            <div class="col-8">
+                                <p class="fs-15 fw-400 text-dark me-4 white-wrap">06/12/2024</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer b0 p-0 mt-3">
+                            <button type="button" class="btn-black fs-14 fw-300 b05 br-5 py-2 px-3"
+                                data-bs-dismiss="modal">Cancel</button>
+                            <button type="button"
+                                class="btn-red fs-14 fw-300 b05 bc-red1 br-5 py-2 px-3">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- studets Add Modal -->
+    <div class="modal fade addnew-popup" id="addnew-popup" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark fw-500">You Can add The student Here...</h5>
+                    <button type="button" class="btn-close delete-popup" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body bg-light">
+                    <div class="col-md-12">
+                        <div class="d-flex align-items-center justify-content-between b05-b">
+                            <div>
+                                <img src="images/seldomlogo (1).jpg" height="150px" class="object-contain br-20"
+                                    alt="tt">
+                            </div>
+                            <div class="d-none d-md-block">
+                                <p class="fs-20 fw-600">Seldom Technologies</p>
+                                <p class="fs-16 fw-450">Koneru Street, Mangalagiri</p>
+                                <p class="fs-16 fw-450">Pincode: 521 250</p>
+                            </div>
+                        </div>
+                        <p class="text-center my-4 fw-800" style="font-size: 40px;">Students Registration Form</p>
+                        <form action="#" id="newForm" class="newForm">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control font-weight-bold" id="fname"
+                                            placeholder="Enter your Name" name="fNmae">
+                                        <label for="fname" class="fs-16 fw-400">Full Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-floating mb-3 ">
+                                        <input type="email" class="form-control font-weight-bold" id="email"
+                                            placeholder="Enter your Email" name="Email">
+                                        <label for="email" class="fs-16 fw-400">Email address</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control font-weight-bold" id="age"
+                                            placeholder="Enter your Name" name="age">
+                                        <label for="age" class="fs-16 fw-400">Age</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-floating mb-3">
+                                        <label for="email" class="fs-16 fw-400"></label>
+                                        <select name="course" id="course" class="form-control font-weight-bold">
+                                            <option value="0">Select Course</option>
+                                            <option value="M.Tech">M.Tech</option>
+                                            <option value="MBA">MBA</option>
+                                            <option value="BBA">BBA</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12 mb-3">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="number" placeholder="Number"
+                                            name="phNumber">
+                                        <label for="text" class="fs-16 fw-400">Number</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12 mb-3">
+                                    <div class="form-floating">
+                                        <input type="file" class="form-control upload img" id="profile"
+                                            placeholder="profile" name="profile">
+                                        <label for="text" class="fs-16 fw-400">Profile</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12 mb-3">
+                                    <div class="form-floating">
+                                        <input type="date" class="form-control" id="date" placeholder="date"
+                                            name="date">
+                                        <label for="date" class="fs-16 fw-400">Date</label>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <button type="submit" class="fs-16 fw-400 cus w-40 submit">Add Student</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize DataTable
+            const studentTable = new DataTable('.datatable');
+
+            // Load data from localStorage and populate the DataTable
+            const storedStudents = JSON.parse(localStorage.getItem('students')) || [];
+            const tbody = document.querySelector('.datatable-cus tbody');
+            storedStudents.forEach(student => {
+                const newRow = `
+            <tr>
+                <td>${student['profile']}</td>
+                <td>${student.fullName}</td>
+                <td>${student.email}</td>
+                <td>${student.age}</td>
+                <td>${student.course}</td>
+                <td>${student.number}</td>
+                <td>${student.date}</td>
+                <td>
+                    <a href="javascript:void(0)" class="btn-yellow btn br-5 b05 fs-16 me-2"><i class="fa-solid fa-eye"></i></a>
+                    <a href="javascript:void(0)" class="btn-blue btn br-5 b05 fs-16 me-2"><i class="fa-solid fa-edit"></i></a>
+                    <a href="javascript:void(0)" class="btn-red btn br-5 b05 fs-16"><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+        `;
+
+                tbody.innerHTML += newRow;
+            });
+
+            studentTable.draw();
+            jQuery('table').DataTable();
+            // Search Functionality
+            const searchInput = document.getElementById('students-search');
+            searchInput.addEventListener('keyup', function () {
+                studentTable.search(this.value).draw();
+            });
+
+            // Handle Form Submission
+            const form = document.getElementById('newForm');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Collect form data
+                const fullName = document.getElementById('fname').value;
+                const email = document.getElementById('email').value;
+                const age = document.getElementById('age').value;
+                const course = document.getElementById('course').value;
+                const number = document.getElementById('number').value;
+                const date = document.getElementById('date').value;
+                const profileInput = document.getElementById('profile');
+
+                let profile;
+                if (profileInput.files && profileInput.files[0]) {
+                    const imageUrl = URL.createObjectURL(profileInput.files[0]);
+                    profile = `<img src="${imageUrl}" alt="profile" class="rounded" style="width: 50px;">`;
+                } else {
+                    profile = `<img src="https://via.placeholder.com/50" alt="profile" class="rounded">`;
+                }
+
+                if(fullName && email && age && course && number && date && profile) {}
+                // Create a student object
+                const newStudent = {
+                    profile,
+                    fullName,
+                    email,
+                    age,
+                    course,
+                    number,
+                    date
+                };
+
+                // Save the new student to localStorage
+                storedStudents.push(newStudent);
+                localStorage.setItem('students', JSON.stringify(storedStudents));
+
+                // Add a new row to the DataTable
+                const newRow = `
+            <tr>
+                <td>${profile}</td>
+                <td>${fullName}</td>
+                <td>${email}</td>
+                <td>${age}</td>
+                <td>${course}</td>
+                <td>${number}</td>
+                <td>${date}</td>
+                <td>
+                    <a href="javascript:void(0)" class="btn-yellow btn br-5 b05 fs-16 me-2"><i class="fa-solid fa-eye"></i>p</a>
+                    <a href="javascript:void(0)" class="btn-blue btn br-5 b05 fs-16 me-2"><i class="fa-solid fa-edit"></i>p</a>
+                    <a href="javascript:void(0)" class="btn-red btn br-5 b05 fs-16"><i class="fa-solid fa-trash"></i>p</a>
+                </td>
+            </tr>
+        `;
+                jQuery('table').DataTable().destroy();
+                tbody.innerHTML += newRow;
+                jQuery('table').DataTable();
+                // Reset the form
+                form.reset();
+                alert('added successfully');
+
+                // Close the modal
+                const modal = document.getElementById('addnew-popup');
+                const modalInstance = bootstrap.Modal.getInstance(modal);
+                modalInstance.hide();
+            });
+        });
+
+    </script> -->
+
+    <!-- <script>
+        jQuery(document).ready(function () {
+            // Initialize DataTable
+            let studentTable = $('.datatable').DataTable();
+
+            // Search Functionality
+            $('#students-search').on('keyup', function () {
+                studentTable.search($(this).val()).draw();
+            });
+        });
+    </script> -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize DataTable
+            const studentTable = new DataTable('.datatable');
+    
+            // Load data from localStorage and populate the DataTable
+            const storedStudents = JSON.parse(localStorage.getItem('students')) || [];
+            const tbody = document.querySelector('.datatable-cus tbody');
+            storedStudents.forEach((student, index) => {
+                addRowToTable(student, index);
+            });
+    
+            studentTable.draw();
+            jQuery('table').DataTable();
+    
+            // Function to add a row to the DataTable
+            function addRowToTable(student, index) {
+                const newRow = `
+                <tr data-index="${index}">
+                    <td>${student['profile']}</td>
+                    <td>${student.fullName}</td>
+                    <td>${student.email}</td>
+                    <td>${student.age}</td>
+                    <td>${student.course}</td>
+                    <td>${student.number}</td>
+                    <td>${student.date}</td>
+                    <td>
+                         <a href="javascript:void(0)" class="btn-yellow btn br-5 b05 fs-16 me-2 view-btn"><i class="fa-solid fa-eye"></i></a>
+                        <a href="javascript:void(0)" class="btn-blue btn br-5 b05 fs-16 me-2 edit-btn"><i class="fa-solid fa-edit"></i></a>
+                        <a href="javascript:void(0)" class="btn-red btn br-5 b05 fs-16 delete-btn" id="delete-btn"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+            `;
+                tbody.innerHTML += newRow;
+            }
+    
+            // Search Functionality
+            const searchInput = document.getElementById('students-search');
+            searchInput.addEventListener('keyup', function () {
+                studentTable.search(this.value).draw();
+            });
+    
+            // Handle Form Submission
+            const form = document.getElementById('newForm');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+    
+                // Collect form data
+                const fullName = document.getElementById('fname').value;
+                const email = document.getElementById('email').value;
+                const age = document.getElementById('age').value;
+                const course = document.getElementById('course').value;
+                const number = document.getElementById('number').value;
+                const date = document.getElementById('date').value;
+                const profileInput = document.getElementById('profile');
+    
+                let profile;
+                if (profileInput.files && profileInput.files[0]) {
+                    const imageUrl = URL.createObjectURL(profileInput.files[0]);
+                    profile = `<img src="${imageUrl}" alt="profile" class="rounded" style="width: 50px;">`;
+                } else {
+                    profile = `<img src="https://via.placeholder.com/50" alt="profile" class="rounded">`;
+                }
+                
+                if(fullName && email && age && course && number && date && profile) {
+                    // Create a student object
+                    const newStudent = {
+                        profile,
+                        fullName,
+                        email,
+                        age,
+                        course,
+                        number,
+                        date
+                    };
+        
+                    // Save the new student to localStorage
+                    storedStudents.push(newStudent);
+                    localStorage.setItem('students', JSON.stringify(storedStudents));
+                    // Add a new row to the DataTable
+                    jQuery('table').DataTable().destroy();
+                    addRowToTable(newStudent, storedStudents.length - 1);
+                    jQuery('table').DataTable();
+        
+                    // Reset the form
+                    form.reset();
+                    alert('Student added successfully!');
+        
+                    // Close the modal
+                    const modal = document.getElementById('addnew-popup');
+                    const modalInstance = bootstrap.Modal.getInstance(modal);
+                    modalInstance.hide();
+                }
+                else{
+                    alert('Please fill all the fields');
+                }
+    
+                
+            });
+    
+            // Handle Delete Functionality
+            tbody.addEventListener('click', function (event) {
+                if (event.target.closest('.delete-btn')) {
+                    alert('dou')
+                    const row = event.target.closest('tr');
+                    const index = row.getAttribute('data-index');
+    
+                    // Remove from localStorage
+                    storedStudents.splice(index, 1);
+                    localStorage.setItem('students', JSON.stringify(storedStudents));
+    
+                    // Remove the row from the table
+                    jQuery('table').DataTable().destroy();
+                    row.remove();
+                    jQuery('table').DataTable();
+                    alert('Student deleted successfully!');
+                }
+            });
+    
+            // Handle Edit Functionality
+            tbody.addEventListener('click', function (event) {
+                if (event.target.closest('.edit-btn')) {
+                    const row = event.target.closest('tr');
+                    const index = row.getAttribute('data-index');
+                    const student = storedStudents[index];
+    
+                    // Populate the form with the student's data
+                    document.getElementById('fname').value = student.fullName;
+                    document.getElementById('email').value = student.email;
+                    document.getElementById('age').value = student.age;
+                    document.getElementById('course').value = student.course;
+                    document.getElementById('number').value = student.number;
+                    document.getElementById('date').value = student.date;
+    
+                    // Update on form submission
+                    form.addEventListener('submit', function handleEdit(event) {
+                        event.preventDefault();
+    
+                        // Update the student object
+                        student.fullName = document.getElementById('fname').value;
+                        student.email = document.getElementById('email').value;
+                        student.age = document.getElementById('age').value;
+                        student.course = document.getElementById('course').value;
+                        student.number = document.getElementById('number').value;
+                        student.date = document.getElementById('date').value;
+    
+                        // Update localStorage
+                        localStorage.setItem('students', JSON.stringify(storedStudents));
+    
+                        // Refresh the table
+                        jQuery('table').DataTable().destroy();
+                        tbody.innerHTML = '';
+                        storedStudents.forEach(addRowToTable);
+                        jQuery('table').DataTable();
+    
+                        alert('Student updated successfully!');
+    
+                        // Reset the form and remove the event listener
+                        form.reset();
+                        form.removeEventListener('submit', handleEdit);
+    
+                        // Close the modal
+                        const modal = document.getElementById('addnew-popup');
+                        const modalInstance = bootstrap.Modal.getInstance(modal);
+                        modalInstance.hide();
+                    });
+                }
+            });
+        });
+    </script>
+    
+
+</body>
+
+</html>
