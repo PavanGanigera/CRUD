@@ -23,10 +23,6 @@
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
-    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
     <!-- JQuery CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -63,8 +59,9 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-6 text-end mt-3 mt-md-0">
-                            <a href="javascript void(0)" class="btn-green2 btn br-5 b05 fs-16 me-2" data-bs-toggle="modal"
-                                data-bs-target="#addnew-popup"><i class="fa-solid fa-plus"></i> Add New</a>
+                            <a href="javascript void(0)" class="btn-green2 btn br-5 b05 fs-16 me-2"
+                                data-bs-toggle="modal" data-bs-target="#addnew-popup"><i class="fa-solid fa-plus"></i>
+                                Add New</a>
                         </div>
                     </div>
                     <div class="table-responsive mt-3">
@@ -90,6 +87,311 @@
             </div>
         </div>
     </section>
+
+    <!-- studets Add Modal -->
+    <div class="modal fade addnew-popup" id="addnew-popup" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark fw-500">You Can add The student Here...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body bg-light">
+                    <div class="col-md-12">
+                        <div class="d-flex align-items-center justify-content-between b05-b">
+                            <div>
+                                <img src="images/seldomlogo (1).jpg" height="150px" class="object-contain br-20"
+                                    alt="tt">
+                            </div>
+                            <div class="d-none d-md-block">
+                                <p class="fs-20 fw-600">Seldom Technologies</p>
+                                <p class="fs-16 fw-450">Koneru Street, Mangalagiri</p>
+                                <p class="fs-16 fw-450">Pincode: 521 250</p>
+                            </div>
+                        </div>
+                        <p class="text-center my-4 fw-800" style="font-size: 40px;">Students Registration Form</p>
+                        <form action="#" id="newForm" class="newForm">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control font-weight-bold" id="fname"
+                                            placeholder="Enter your Name" name="fNmae">
+                                        <label for="fname" class="fs-16 fw-400">Full Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-floating mb-3 ">
+                                        <input type="email" class="form-control font-weight-bold" id="email"
+                                            placeholder="Enter your Email" name="Email">
+                                        <label for="email" class="fs-16 fw-400">Email address</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control font-weight-bold" id="age"
+                                            placeholder="Enter your Name" name="age">
+                                        <label for="age" class="fs-16 fw-400">Age</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-floating mb-3">
+                                        <label for="course" class="fs-16 fw-400"></label>
+                                        <select name="course" id="course" class="form-control font-weight-bold">
+                                            <option value="0">Select Course</option>
+                                            <option value="M.Tech">M.Tech</option>
+                                            <option value="MBA">MBA</option>
+                                            <option value="BBA">BBA</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12 mb-3">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="number" placeholder="Number"
+                                            name="phNumber">
+                                        <label for="number" class="fs-16 fw-400">Number</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12 mb-3">
+                                    <div class="form-floating">
+                                        <input type="file" class="form-control upload img" id="profile"
+                                            placeholder="profile" name="profile">
+                                        <label for="profile" class="fs-16 fw-400">Profile</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12 mb-3">
+                                    <div class="form-floating">
+                                        <input type="date" class="form-control" id="date" placeholder="date"
+                                            name="date">
+                                        <label for="date" class="fs-16 fw-400">Date</label>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <button type="submit" class="fs-16 fw-400 cus w-40 submit">Add Student</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View details -->
+
+    <div class="modal fade view-popup" id="view-popup" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark fw-500"> Student Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body bg-light">
+                    <div class="container">
+                        <div class="card">
+                            <div class="card-body pt-4">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <a href="images/profile.avif" data-fancybox="gallery" style="z-index: 999;">
+                                                <img src="images/profile.avif" alt="Time-In" width="150" height="150"
+                                                    class="object-contain br-10 profile-img">
+                                            </a>
+                                            <div class="d-flex flex-column ms-3">
+                                                <h5 class="mb-1 fs-24 fw-500 text-primary" id="edit1Name">PavanKumar
+                                                </h5>
+                                                <div class="d-flex">
+                                                    <p class="mb-1 fs-16 fw-350 text-dark2 me-3">Course :</p>
+                                                    <p class="mb-1 fs-16 fw-350 text-dark2" id="edit1Course">Python</p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <p class="mb-1 fs-16 fw-350 text-dark2 me-3">College :</p>
+                                                    <p class="mb-1 fs-16 fw-350 text-dark2">Seldom</p>
+                                                </div>
+                                                <div class=" mt-3" data-bs-toggle="modal" data-bs-target="#edit-popup">
+                                                    <p href="" class="btn btn-blue fs-18 fw-300 ot br-7 p-2"><i
+                                                            class="fa-solid fa-pen-nib me-2"></i>Edit Profile</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card profile-card b05-t br-0">
+                                <div class="card-body">
+                                    <h1 class="card-title text-center fs-20 fw-800 p-0 pb-5">Student Details</h1>
+                                    <div class="row g-4">
+                                        <div class="col-md-6">
+                                            <p class="fs-16 fw-300">Full name</p>
+                                            <p class="fs-18 fw-350 ot forName">Pavan Kumar</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="fs-16 fw-300">Email Address</p>
+                                            <p class="fs-18 fw-350" id="forMail">pavanS@gmail.com</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="fs-16  fw-300">Mobile Number</p>
+                                            <p class="fs-18 fw-350" id="forphone">123 456 4444</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="fs-16 fw-300">Age</p>
+                                            <p class="fs-18 fw-350" id="forAge">22</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="fs-16 fw-300">Course</p>
+                                            <p class="fs-16 fw-350 forCourse">Python</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class=" fs-16 fw-300">Date</p>
+                                            <p class="fs-18 fw-350" id="forDate">15/06/1995</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- edit Model -->
+
+    <div class="modal fade edit-popup" id="edit-popup" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="text-center fw-800" style="font-size: 40px;">Edit Profile</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body bg-light">
+                    <section class="dj">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-body pt-4">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex justify-content-start align-items-center">
+                                                <div class="profile-img">
+                                                    <img id="profilePreview" src="images/profile.avif"
+                                                        alt="Profile Image" height="150" class="object-contain br-10">
+                                                </div>
+                                                <div class="d-flex flex-column ms-3">
+                                                    <h5 class="mb-1 fs-24 fw-500 text-orange">PavanKumar
+                                                    </h5>
+                                                    <div class="d-flex">
+                                                        <p class="mb-1 fs-16 fw-350 text-dark2 me-3">Course
+                                                            :</p>
+                                                        <p class="mb-1 fs-16 fw-350 text-dark2">Python</p>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <p class="mb-1 fs-16 fw-350 text-dark2 me-3">College
+                                                            :</p>
+                                                        <p class="mb-1 fs-16 fw-350 text-dark2">Seldom</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card profile-card b05-t br-0">
+                                    <div class="card-body pt-4 dj b0">
+                                        <div class="col-md-12">
+                                            <form action="">
+                                                <!-- <h6 class="mb-3 fs-16 fw-450">Please Login to Your Account</h6> -->
+                                                <div class="row">
+                                                    <div class="col-md-4 col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control font-weight-bold"
+                                                                id="editFullName" placeholder="Enter your Name"
+                                                                value="${student.fullName}">
+                                                            <label for="fname" class="fs-16 fw-400"> Full
+                                                                Name</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-12">
+                                                        <div class="form-floating mb-3 ">
+                                                            <input type="email" class="form-control font-weight-bold"
+                                                                id="editEmail" placeholder="Enter your Email">
+                                                            <label for="email" class="fs-16 fw-400">Email
+                                                                address</label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div class="col-md-4 col-12">
+                                                        <div class="form-floating">
+                                                            <input type="password" class="form-control" id="password"
+                                                                placeholder="Password">
+                                                            <label for="password" class="fs-16 fw-400">Password</label>
+                                                        </div>
+                                                    </div> -->
+                                                    <div class="col-md-4 col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="number" class="form-control font-weight-bold"
+                                                                id="editAge" placeholder="Enter your Name">
+                                                            <label for="age" class="fs-16 fw-400">Age</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <label for="course" class="fs-16 fw-400"></label>
+                                                            <select name="course" id="editCourse"
+                                                                class="form-control font-weight-bold">
+                                                                <option value="">Select Course</option>
+                                                                <option value="M.Tech">M.Tech</option>
+                                                                <option value="MBA">MBA</option>
+                                                                <option value="BBA">BBA</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-12">
+                                                        <div class="form-floating">
+                                                            <input type="tel" class="form-control" id="editNumber"
+                                                                placeholder="Number">
+                                                            <label for="number" class="fs-16 fw-400">Number</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-floating">
+                                                            <!-- <img id="profilePreview" src="" width="80" class="rounded mb-2"> -->
+                                                            <input type="file" class="form-control" id="profile"
+                                                                placeholder="profile">
+                                                            <label for="profile" class="fs-16 fw-400">Profile</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-12">
+                                                        <div class="form-floating">
+                                                            <input type="date" class="form-control" id="editDate"
+                                                                placeholder="date">
+                                                            <label for="date" class="fs-16 fw-400">Date</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center mt-5">
+                                                        <div>
+                                                            <button type="button"
+                                                                class="fs-16 fw-400 btn btn-red me-2">Cancel</button>
+                                                            <button type="button"
+                                                                class="fs-16 fw-400 btn btn-green2">Update
+                                                                Student</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- studets Delete Modal -->
     <div class="modal fade delete-popup" id="delete-popup" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -133,231 +435,27 @@
         </div>
     </div>
 
-    <!-- studets Add Modal -->
-    <div class="modal fade addnew-popup" id="addnew-popup" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-dark fw-500">You Can add The student Here...</h5>
-                    <button type="button" class="btn-close delete-popup" data-bs-dismiss="modal" aria-label="Close">
-                    </button>
-                </div>
-                <div class="modal-body bg-light">
-                    <div class="col-md-12">
-                        <div class="d-flex align-items-center justify-content-between b05-b">
-                            <div>
-                                <img src="images/seldomlogo (1).jpg" height="150px" class="object-contain br-20"
-                                    alt="tt">
-                            </div>
-                            <div class="d-none d-md-block">
-                                <p class="fs-20 fw-600">Seldom Technologies</p>
-                                <p class="fs-16 fw-450">Koneru Street, Mangalagiri</p>
-                                <p class="fs-16 fw-450">Pincode: 521 250</p>
-                            </div>
-                        </div>
-                        <p class="text-center my-4 fw-800" style="font-size: 40px;">Students Registration Form</p>
-                        <form action="#" id="newForm" class="newForm">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control font-weight-bold" id="fname"
-                                            placeholder="Enter your Name" name="fNmae">
-                                        <label for="fname" class="fs-16 fw-400">Full Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-12">
-                                    <div class="form-floating mb-3 ">
-                                        <input type="email" class="form-control font-weight-bold" id="email"
-                                            placeholder="Enter your Email" name="Email">
-                                        <label for="email" class="fs-16 fw-400">Email address</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-12">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control font-weight-bold" id="age"
-                                            placeholder="Enter your Name" name="age">
-                                        <label for="age" class="fs-16 fw-400">Age</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-12">
-                                    <div class="form-floating mb-3">
-                                        <label for="email" class="fs-16 fw-400"></label>
-                                        <select name="course" id="course" class="form-control font-weight-bold">
-                                            <option value="0">Select Course</option>
-                                            <option value="M.Tech">M.Tech</option>
-                                            <option value="MBA">MBA</option>
-                                            <option value="BBA">BBA</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-12 mb-3">
-                                    <div class="form-floating">
-                                        <input type="tel" class="form-control" id="number" placeholder="Number"
-                                            name="phNumber">
-                                        <label for="text" class="fs-16 fw-400">Number</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-12 mb-3">
-                                    <div class="form-floating">
-                                        <input type="file" class="form-control upload img" id="profile"
-                                            placeholder="profile" name="profile">
-                                        <label for="text" class="fs-16 fw-400">Profile</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-12 mb-3">
-                                    <div class="form-floating">
-                                        <input type="date" class="form-control" id="date" placeholder="date"
-                                            name="date">
-                                        <label for="date" class="fs-16 fw-400">Date</label>
-                                    </div>
-                                </div>
-                                <div class="text-center mt-4">
-                                    <button type="submit" class="fs-16 fw-400 cus w-40 submit">Add Student</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize DataTable
-            const studentTable = new DataTable('.datatable');
-
-            // Load data from localStorage and populate the DataTable
-            const storedStudents = JSON.parse(localStorage.getItem('students')) || [];
-            const tbody = document.querySelector('.datatable-cus tbody');
-            storedStudents.forEach(student => {
-                const newRow = `
-            <tr>
-                <td>${student['profile']}</td>
-                <td>${student.fullName}</td>
-                <td>${student.email}</td>
-                <td>${student.age}</td>
-                <td>${student.course}</td>
-                <td>${student.number}</td>
-                <td>${student.date}</td>
-                <td>
-                    <a href="javascript:void(0)" class="btn-yellow btn br-5 b05 fs-16 me-2"><i class="fa-solid fa-eye"></i></a>
-                    <a href="javascript:void(0)" class="btn-blue btn br-5 b05 fs-16 me-2"><i class="fa-solid fa-edit"></i></a>
-                    <a href="javascript:void(0)" class="btn-red btn br-5 b05 fs-16"><i class="fa-solid fa-trash"></i></a>
-                </td>
-            </tr>
-        `;
-
-                tbody.innerHTML += newRow;
-            });
-
-            studentTable.draw();
-            jQuery('table').DataTable();
-            // Search Functionality
-            const searchInput = document.getElementById('students-search');
-            searchInput.addEventListener('keyup', function () {
-                studentTable.search(this.value).draw();
-            });
-
-            // Handle Form Submission
-            const form = document.getElementById('newForm');
-            form.addEventListener('submit', function (event) {
-                event.preventDefault(); // Prevent default form submission
-
-                // Collect form data
-                const fullName = document.getElementById('fname').value;
-                const email = document.getElementById('email').value;
-                const age = document.getElementById('age').value;
-                const course = document.getElementById('course').value;
-                const number = document.getElementById('number').value;
-                const date = document.getElementById('date').value;
-                const profileInput = document.getElementById('profile');
-
-                let profile;
-                if (profileInput.files && profileInput.files[0]) {
-                    const imageUrl = URL.createObjectURL(profileInput.files[0]);
-                    profile = `<img src="${imageUrl}" alt="profile" class="rounded" style="width: 50px;">`;
-                } else {
-                    profile = `<img src="https://via.placeholder.com/50" alt="profile" class="rounded">`;
-                }
-
-                if(fullName && email && age && course && number && date && profile) {}
-                // Create a student object
-                const newStudent = {
-                    profile,
-                    fullName,
-                    email,
-                    age,
-                    course,
-                    number,
-                    date
-                };
-
-                // Save the new student to localStorage
-                storedStudents.push(newStudent);
-                localStorage.setItem('students', JSON.stringify(storedStudents));
-
-                // Add a new row to the DataTable
-                const newRow = `
-            <tr>
-                <td>${profile}</td>
-                <td>${fullName}</td>
-                <td>${email}</td>
-                <td>${age}</td>
-                <td>${course}</td>
-                <td>${number}</td>
-                <td>${date}</td>
-                <td>
-                    <a href="javascript:void(0)" class="btn-yellow btn br-5 b05 fs-16 me-2"><i class="fa-solid fa-eye"></i>p</a>
-                    <a href="javascript:void(0)" class="btn-blue btn br-5 b05 fs-16 me-2"><i class="fa-solid fa-edit"></i>p</a>
-                    <a href="javascript:void(0)" class="btn-red btn br-5 b05 fs-16"><i class="fa-solid fa-trash"></i>p</a>
-                </td>
-            </tr>
-        `;
-                jQuery('table').DataTable().destroy();
-                tbody.innerHTML += newRow;
-                jQuery('table').DataTable();
-                // Reset the form
-                form.reset();
-                alert('added successfully');
-
-                // Close the modal
-                const modal = document.getElementById('addnew-popup');
-                const modalInstance = bootstrap.Modal.getInstance(modal);
-                modalInstance.hide();
-            });
-        });
-
-    </script> -->
-
-    <!-- <script>
-        jQuery(document).ready(function () {
-            // Initialize DataTable
-            let studentTable = $('.datatable').DataTable();
-
-            // Search Functionality
-            $('#students-search').on('keyup', function () {
-                studentTable.search($(this).val()).draw();
-            });
-        });
-    </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
+        integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Initialize DataTable
             const studentTable = new DataTable('.datatable');
-    
+
             // Load data from localStorage and populate the DataTable
             const storedStudents = JSON.parse(localStorage.getItem('students')) || [];
             const tbody = document.querySelector('.datatable-cus tbody');
             storedStudents.forEach((student, index) => {
                 addRowToTable(student, index);
             });
-    
+
             studentTable.draw();
             jQuery('table').DataTable();
-    
+
             // Function to add a row to the DataTable
             function addRowToTable(student, index) {
                 const newRow = `
@@ -370,26 +468,26 @@
                     <td>${student.number}</td>
                     <td>${student.date}</td>
                     <td>
-                         <a href="javascript:void(0)" class="btn-yellow btn br-5 b05 fs-16 me-2 view-btn"><i class="fa-solid fa-eye"></i></a>
-                        <a href="javascript:void(0)" class="btn-blue btn br-5 b05 fs-16 me-2 edit-btn"><i class="fa-solid fa-edit"></i></a>
+                         <a href="javascript:void(0)" class="btn-yellow btn br-5 b05 fs-16 me-2 view-btn"><i class="fa-solid fa-eye" data-bs-toggle="modal" data-bs-target="#view-popup"></i></a>
+                        <a href="javascript:void(0)" class="btn-blue btn br-5 b05 fs-16 me-2 edit-btn"><i class="fa-solid fa-edit"  data-bs-toggle="modal" data-bs-target="#edit-popup"></i></a>
                         <a href="javascript:void(0)" class="btn-red btn br-5 b05 fs-16 delete-btn" id="delete-btn"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
             `;
                 tbody.innerHTML += newRow;
             }
-    
+
             // Search Functionality
-            const searchInput = document.getElementById('students-search');
-            searchInput.addEventListener('keyup', function () {
-                studentTable.search(this.value).draw();
+            const table = $('.datatable-cus').DataTable();
+
+            document.getElementById('students-search').addEventListener('input', function () {
+                table.search(this.value).draw();
             });
-    
             // Handle Form Submission
             const form = document.getElementById('newForm');
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
-    
+
                 // Collect form data
                 const fullName = document.getElementById('fname').value;
                 const email = document.getElementById('email').value;
@@ -398,7 +496,7 @@
                 const number = document.getElementById('number').value;
                 const date = document.getElementById('date').value;
                 const profileInput = document.getElementById('profile');
-    
+
                 let profile;
                 if (profileInput.files && profileInput.files[0]) {
                     const imageUrl = URL.createObjectURL(profileInput.files[0]);
@@ -406,8 +504,8 @@
                 } else {
                     profile = `<img src="https://via.placeholder.com/50" alt="profile" class="rounded">`;
                 }
-                
-                if(fullName && email && age && course && number && date && profile) {
+
+                if (fullName && email && age && course && number && date && profile) {
                     // Create a student object
                     const newStudent = {
                         profile,
@@ -418,7 +516,7 @@
                         number,
                         date
                     };
-        
+
                     // Save the new student to localStorage
                     storedStudents.push(newStudent);
                     localStorage.setItem('students', JSON.stringify(storedStudents));
@@ -426,34 +524,34 @@
                     jQuery('table').DataTable().destroy();
                     addRowToTable(newStudent, storedStudents.length - 1);
                     jQuery('table').DataTable();
-        
+
                     // Reset the form
                     form.reset();
                     alert('Student added successfully!');
-        
+
                     // Close the modal
                     const modal = document.getElementById('addnew-popup');
                     const modalInstance = bootstrap.Modal.getInstance(modal);
                     modalInstance.hide();
                 }
-                else{
+                else {
                     alert('Please fill all the fields');
                 }
-    
-                
+
             });
-    
+
+            // console.log(storedStudents);
+
             // Handle Delete Functionality
             tbody.addEventListener('click', function (event) {
                 if (event.target.closest('.delete-btn')) {
-                    alert('dou')
                     const row = event.target.closest('tr');
                     const index = row.getAttribute('data-index');
-    
+
                     // Remove from localStorage
                     storedStudents.splice(index, 1);
                     localStorage.setItem('students', JSON.stringify(storedStudents));
-    
+
                     // Remove the row from the table
                     jQuery('table').DataTable().destroy();
                     row.remove();
@@ -461,59 +559,136 @@
                     alert('Student deleted successfully!');
                 }
             });
-    
+
             // Handle Edit Functionality
-            tbody.addEventListener('click', function (event) {
-                if (event.target.closest('.edit-btn')) {
-                    const row = event.target.closest('tr');
-                    const index = row.getAttribute('data-index');
-                    const student = storedStudents[index];
-    
-                    // Populate the form with the student's data
-                    document.getElementById('fname').value = student.fullName;
-                    document.getElementById('email').value = student.email;
-                    document.getElementById('age').value = student.age;
-                    document.getElementById('course').value = student.course;
-                    document.getElementById('number').value = student.number;
-                    document.getElementById('date').value = student.date;
-    
-                    // Update on form submission
-                    form.addEventListener('submit', function handleEdit(event) {
-                        event.preventDefault();
-    
-                        // Update the student object
-                        student.fullName = document.getElementById('fname').value;
-                        student.email = document.getElementById('email').value;
-                        student.age = document.getElementById('age').value;
-                        student.course = document.getElementById('course').value;
-                        student.number = document.getElementById('number').value;
-                        student.date = document.getElementById('date').value;
-    
-                        // Update localStorage
-                        localStorage.setItem('students', JSON.stringify(storedStudents));
-    
-                        // Refresh the table
-                        jQuery('table').DataTable().destroy();
-                        tbody.innerHTML = '';
-                        storedStudents.forEach(addRowToTable);
-                        jQuery('table').DataTable();
-    
-                        alert('Student updated successfully!');
-    
-                        // Reset the form and remove the event listener
-                        form.reset();
-                        form.removeEventListener('submit', handleEdit);
-    
-                        // Close the modal
-                        const modal = document.getElementById('addnew-popup');
-                        const modalInstance = bootstrap.Modal.getInstance(modal);
-                        modalInstance.hide();
+            let editIndex = null;
+
+            tbody.addEventListener('click', function (e) {
+
+                const editBtn = e.target.closest('.edit-btn');
+                if (!editBtn) return;
+
+                const row = editBtn.closest('tr');
+                editIndex = row.dataset.index;
+
+                const students = JSON.parse(localStorage.getItem('students')) || [];
+                const student = students[editIndex];
+
+                // ✅ SET EXISTING VALUES INTO INPUTS
+                document.getElementById('editFullName').value = student.fullName;
+                document.getElementById('editEmail').value = student.email;
+                document.getElementById('editAge').value = student.age;
+                document.getElementById('editCourse').value = student.course;
+                document.getElementById('editNumber').value = student.number;
+                document.getElementById('editDate').value = student.date;
+                document.getElementById('edit1Name').textContent = student.fullName;
+                document.getElementById('edit1Course').textContent = student.course;
+
+                // Show profile image in preview
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = student.profile;
+
+                const img = tempDiv.querySelector('img');
+                if (img && img.src) {
+                    document.getElementById('profilePreview').src = img.src;
+                } else {
+                    document.getElementById('profilePreview').src = 'images/profile.avif';
+                }
+
+            });
+            // Handle Update Functionality
+            const updateBtn = document.querySelector('.edit-popup .btn-green2');
+            updateBtn.addEventListener('click', function () {
+                const fullName = document.getElementById('editFullName').value;
+                const email = document.getElementById('editEmail').value;
+                const age = document.getElementById('editAge').value;
+                const course = document.getElementById('editCourse').value;
+                const number = document.getElementById('editNumber').value;
+                const date = document.getElementById('editDate').value;
+                const profileInput = document.getElementById('profile');
+
+                let profile;
+                if (profileInput.files && profileInput.files[0]) {
+                    const imageUrl = URL.createObjectURL(profileInput.files[0]);
+                    profile = `<img src="${imageUrl}" alt="profile" class="rounded" style="width: 50px;">`;
+                } else {
+                    const existingStudent = storedStudents[editIndex];
+                    profile = existingStudent.profile;
+                }
+
+                if (fullName && email && age && course && number && date && profile) {
+                    // Update student object
+                    const updatedStudent = {
+                        profile,
+                        fullName,
+                        email,
+                        age,
+                        course,
+                        number,
+                        date
+                    };
+
+                    // Update localStorage
+                    storedStudents[editIndex] = updatedStudent;
+                    localStorage.setItem('students', JSON.stringify(storedStudents));
+
+                    // Refresh the table
+                    jQuery('table').DataTable().destroy();
+                    tbody.innerHTML = '';
+                    storedStudents.forEach((student, index) => {
+                        addRowToTable(student, index);
                     });
+                    jQuery('table').DataTable();
+
+                    alert('Student updated successfully!');
+
+                    // Close the modal
+                    const modal = document.getElementById('edit-popup');
+                    const modalInstance = bootstrap.Modal.getInstance(modal);
+                    modalInstance.hide();
+                } else {
+                    alert('Please fill all the fields');
                 }
             });
+            // view button functionality
+            tbody.addEventListener('click', function (e) {
+
+                const viewBtn = e.target.closest('.view-btn');
+                if (!viewBtn) return;
+
+                const row = viewBtn.closest('tr');
+                const viewIndex = row.dataset.index;
+
+                const students = JSON.parse(localStorage.getItem('students')) || [];
+                const student = students[viewIndex];
+
+                // Set text values
+                document.querySelectorAll('.forName').forEach(el => { el.textContent = student.fullName; });
+                document.querySelector('p.forName').textContent = student.fullName;
+                document.getElementById('forMail').textContent = student.email;
+                document.getElementById('forAge').textContent = student.age;
+                document.querySelectorAll('.forCourse').forEach(el => { el.textContent = student.course; });
+                document.getElementById('forphone').textContent = student.number;
+                document.getElementById('forDate').textContent = student.date;
+
+                // Profile image
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = student.profile;
+                const img = tempDiv.querySelector('img');
+
+                document.querySelector('#view-popup .profile-img img').src =
+                    img?.src || 'images/profile.avif';
+            });
+
         });
+
+        // const searchInput = document.getElementById('students-search');
+
+        // searchInput.addEventListener('keyup', function () {
+        //     $('.datatable').DataTable().search(this.value).draw();
+        // });
+
     </script>
-    
 
 </body>
 

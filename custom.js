@@ -18,12 +18,20 @@ document.getElementById('regForm').addEventListener('submit', function (event) {
         localStorage.setItem(email, JSON.stringify(userDetails)); // Email as key
         alert("Registration Successful!");
         // swal("Good job!", "Registration Successful", "success");
-        window.location.href = 'login.html'; // Redirect to login page
+        window.location.href = '/index.html'; // Redirect to login page
     } else {
         // alert("Please fill in all fields correctly.");
         swal("Oops..!", "Please fill in all fields correctly", "info");
     }
 });
+
+const searchInput = document.getElementById('students-search');
+
+searchInput.addEventListener('keyup', function () {
+    $('.datatable').DataTable().search(this.value).draw();
+});
+
+
 
 
 

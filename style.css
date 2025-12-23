@@ -146,21 +146,6 @@ div.dt-container .dt-search, .dt-length {
 .bg-lg { background-color: rgb(179, 255, 66) !important;}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =========== */
 .card-cs {
     background: transparent;
@@ -174,20 +159,6 @@ p {
     margin-top: 0;
     margin-bottom: 0.2rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Data Tables */
@@ -336,4 +307,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 20px;
     height: 20px;
     border-width: thin;
+}
+
+
+/* custome */
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d; /* visible color */
+    z-index: 5;
 }
