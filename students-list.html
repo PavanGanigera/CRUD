@@ -205,7 +205,7 @@
                                                 </h5>
                                                 <div class="d-flex">
                                                     <p class="mb-1 fs-16 fw-350 text-dark2 me-3">Course :</p>
-                                                    <p class="mb-1 fs-16 fw-350 text-dark2" id="edit1Course">Python</p>
+                                                    <p class="mb-1 fs-16 fw-350 text-dark2 forCourse">Python</p>
                                                 </div>
                                                 <div class="d-flex">
                                                     <p class="mb-1 fs-16 fw-350 text-dark2 me-3">College :</p>
@@ -287,7 +287,8 @@
                                                     <div class="d-flex">
                                                         <p class="mb-1 fs-16 fw-350 text-dark2 me-3">Course
                                                             :</p>
-                                                        <p class="mb-1 fs-16 fw-350 text-dark2">Python</p>
+                                                        <p class="mb-1 fs-16 fw-350 text-dark2" id="edit1Course">Python
+                                                        </p>
                                                     </div>
                                                     <div class="d-flex">
                                                         <p class="mb-1 fs-16 fw-350 text-dark2 me-3">College
@@ -444,7 +445,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Initialize DataTable
-            const studentTable = new DataTable('.datatable');
+            const studentTable = new DataTable('.datatable', {
+                lengthMenu: [5],
+                paging: true,
+                info: true
+            });
 
             // Load data from localStorage and populate the DataTable
             const storedStudents = JSON.parse(localStorage.getItem('students')) || [];
@@ -454,7 +459,7 @@
             });
 
             studentTable.draw();
-            jQuery('table').DataTable();
+            // jQuery('table').DataTable();
 
             // Function to add a row to the DataTable
             function addRowToTable(student, index) {
@@ -478,7 +483,13 @@
             }
 
             // Search Functionality
-            const table = $('.datatable-cus').DataTable();
+            const table = $('.datatable-cus').DataTable(
+                {
+                    "paging": true,
+                    "info": false,
+                    lengthMenu: [5, 25, 50, -1]
+                }
+            );
 
             document.getElementById('students-search').addEventListener('input', function () {
                 table.search(this.value).draw();
